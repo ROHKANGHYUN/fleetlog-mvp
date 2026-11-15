@@ -94,6 +94,6 @@ Android 코드는 보존했고 이번 최종 MVP 작업에서는 수정·실행�
 
 소스·`package.json`·`package-lock.json`·필수 설정·문서만 공유합니다. `.env`/비밀값·DB/WAL/SHM·node_modules·dist·SDK/캐시·APK·로그·실행 결과는 제외합니다. 기본 실행은 `.env.example`을 복사하지 않아도 되며 예시에는 가상 로컬 값만 있습니다. `source:mock`, 패키지명·API 경로·저장소 키는 이름 변경 때문에 바꾸지 않습니다.
 
-이번에는 Git 초기화·스테이징·커밋·원격 생성/변경·push를 하지 않습니다. GitHub 업로드의 준비 상태와 다음 결정 항목은 [최종 인수인계](docs/MVP_FINAL_HANDOFF.md#github-공유-준비)를 확인하세요.
+공개 저장소는 **[Fleetlog](https://github.com/ROHKANGHYUN/fleetlog-mvp)**입니다. 주최 측은 별도 초대 없이 소스와 실행 안내를 확인할 수 있습니다. 서비스 표기는 **Fleetlog**, 관리자 표기는 **Fleetlog 비즈**로 통일합니다. 소스 공개와 웹서비스 배포·공모전 접수는 별개이며, 현재 공개 저장소에 실행 중인 웹 데모가 배포된 것은 아닙니다. 공유 범위와 게시 이력은 [최종 인수인계](docs/MVP_FINAL_HANDOFF.md#github-공유-준비)를 확인하세요.
 
 이전 단계 기록: [QR](docs/MVP_STEP1_QR.md) · [음성/전송](docs/MVP_STEP2_VOICE_TRIP.md) · [차량 UI](docs/MVP_VEHICLE_UI_UPDATE.md) · [브랜드](docs/BRAND_FLEETLOG.md). 변경 전 [AGENTS.md](AGENTS.md)를 읽으세요.
