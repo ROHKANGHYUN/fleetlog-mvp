@@ -1,0 +1,7 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {randomUUID} from 'node:crypto';
+import {validateTripEvent,canonicalJson} from './index.mjs';
+export function sample(){return {schemaVersion:1,eventType:'TRIP_UPSERT',eventId:randomUUID(),tripId:randomUUID(),localRevision:1,expectedServerVersion:0,source:'mock',payload:{vehicleId:'demo-car-001',driverId:'demo-driver-001',startedAt:'2026-11-15T00:00:00.000Z',endedAt:'2026-11-15T00:30:00.000Z',startOdometerM:100,endOdometerM:23500,purpose:null,note:'',quality:'valid'}};}
+test('unconfirmed mock event is valid and canonical order is stable',()=>{const e=sample();assert.equal(validateTripEvent(e),e);assert.equal(canonicalJson({a:1,b:{c:2,d:3}}),canonicalJson({b:{d:3,c:2},a:1}));});
+test('wrong tenant-like fields, unknown fields and real sources are refused',()=>{for(const change of [e=>e.tenantId='other',e=>e.source='live',e=>e.payload.vehicleId='other',e=>e.payload.extra=true]){const e=sample();change(e);assert.throws(()=>validateTripEvent(e));}});
+test('invalid timestamps, reversed distances, unsafe integers and purposes fail',()=>{for(const change of [e=>e.payload.endedAt='2026-02-30T00:00:00.000Z',e=>e.payload.endedAt='2025-01-01T00:00:00.000Z',e=>e.payload.endOdometerM=0,e=>e.payload.endOdometerM=Number.MAX_SAFE_INTEGER+1,e=>e.localRevision=0,e=>e.payload.purpose='auto-business',e=>e.payload.note='x'.repeat(121)]){const e=sample();change(e);assert.throws(()=>validateTripEvent(e));}});

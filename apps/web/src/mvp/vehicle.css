@@ -1,0 +1,71 @@
+.mvp-car-screen.vehicle-screen {
+  --vehicle-unit: min(1vw, 1.777778vh);
+  --vehicle-gap: calc(var(--vehicle-unit) * 2.5);
+  --vehicle-ink: #15222d;
+  --vehicle-navy: #183652;
+  --vehicle-muted: #526276;
+  box-sizing: border-box; min-height: 100dvh; height: 100dvh; width: 100%; padding: var(--vehicle-gap);
+  background: #f4f6f8; color: var(--vehicle-ink); display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr);
+  justify-content: stretch; align-items: stretch;
+  gap: calc(var(--vehicle-unit) * 2.3); font-family: "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif;
+}
+.mvp-car-screen.vehicle-screen.vehicle-driving { display: block; padding: 0; }
+.vehicle-screen-header { display: flex; justify-content: space-between; align-items: center; gap: 20px; min-height: calc(var(--vehicle-unit) * 4); }
+.vehicle-brand { display: flex; align-items: center; gap: calc(var(--vehicle-unit) * 1.25); color: var(--vehicle-navy); min-width: 0; }
+.vehicle-brand strong { font-size: clamp(20px, calc(var(--vehicle-unit) * 2.08), 40px); line-height: 1.2; font-weight: 780; white-space: nowrap; }
+.vehicle-car-icon { flex: 0 0 auto; width: calc(var(--vehicle-unit) * 2.5); height: calc(var(--vehicle-unit) * 2.5); }
+.vehicle-brand small { font-size: clamp(11px, calc(var(--vehicle-unit) * .94), 18px); color: #607080; white-space: nowrap; }
+.vehicle-parking-badge { display: flex; align-items: center; justify-content: center; gap: calc(var(--vehicle-unit) * .83); padding: calc(var(--vehicle-unit) * .83) calc(var(--vehicle-unit) * 1.67); border-radius: 999px; background: #e2f3e8; color: #186c40; font-size: clamp(18px, calc(var(--vehicle-unit) * 1.875), 36px); line-height: 1.2; font-weight: 700; white-space: nowrap; }
+.vehicle-parking-badge svg { width: calc(var(--vehicle-unit) * 2); height: calc(var(--vehicle-unit) * 2); }
+.vehicle-parking-badge.unknown { background: #e8edf1; color: #526276; }
+.vehicle-screen h1 { font-size: clamp(28px, calc(var(--vehicle-unit) * 2.92), 56px); font-weight: 800; letter-spacing: -.03em; line-height: 1.25; margin: 0; overflow-wrap: anywhere; }
+.vehicle-introduction { color: #344555; font-size: clamp(20px, calc(var(--vehicle-unit) * 2.08), 40px); line-height: 1.5; margin-top: calc(var(--vehicle-unit) * 1.25); }
+.vehicle-connection-layout { display: grid; grid-template-columns: minmax(0, 1.775fr) minmax(0, 1fr); gap: var(--vehicle-gap); min-height: 0; }
+.vehicle-connection-copy, .vehicle-trip-actions { min-width: 0; min-height: 0; display: flex; flex-direction: column; justify-content: space-between; }
+.vehicle-readiness, .vehicle-collection-state { list-style: none; margin: 0; padding: 0; display: grid; gap: calc(var(--vehicle-unit) * 1.15); }
+.vehicle-readiness { margin-top: calc(var(--vehicle-unit) * 2.5); }
+.vehicle-readiness li, .vehicle-collection-state li { display: flex; align-items: center; gap: calc(var(--vehicle-unit) * 1.1); font-size: clamp(20px, calc(var(--vehicle-unit) * 1.875), 36px); line-height: 1.35; }
+.vehicle-readiness li span { color: #344555; }.vehicle-readiness small { font-size: .6em; color: #607080; }
+.vehicle-readiness svg, .vehicle-collection-state svg { flex: 0 0 auto; width: calc(var(--vehicle-unit) * 2.1); height: calc(var(--vehicle-unit) * 2.1); }
+.vehicle-readiness .good, .vehicle-collection-state .good { color: #186c40; }
+.vehicle-readiness .waiting, .vehicle-readiness .waiting span, .vehicle-collection-state .waiting { color: #805a03; }
+.vehicle-collection-state .muted { color: #526276; }
+.vehicle-connection-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: calc(var(--vehicle-unit) * 1.67); }
+.vehicle-button { width: 100%; min-height: 56px; height: calc(var(--vehicle-unit) * 7.5); padding: 12px 20px; border-radius: calc(var(--vehicle-unit) * 1.5); font-size: clamp(22px, calc(var(--vehicle-unit) * 2.3), 44px); line-height: 1.2; font-weight: 760; cursor: pointer; }
+.vehicle-button.primary { border: 2px solid #2460d8; background: #2460d8; color: white; }
+.vehicle-button.secondary { border: 3px solid #9aa9b9; background: #fff; color: #15222d; }
+.vehicle-button:disabled { cursor: not-allowed; opacity: .45; }
+.vehicle-button:focus-visible, .vehicle-stop-button:focus-visible { outline: 4px solid #008d88; outline-offset: 5px; }
+.vehicle-qr-card, .vehicle-trip-card { min-width: 0; min-height: 0; border: 2px solid #d1dce8; border-radius: calc(var(--vehicle-unit) * 1.67); background: white; }
+.vehicle-qr-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: calc(var(--vehicle-unit) * 1.4); padding: calc(var(--vehicle-unit) * 2.5); text-align: center; }
+.vehicle-qr-card .mvp-qr { width: min(100%, calc(var(--vehicle-unit) * 24)); padding: 0; border-radius: 0; background: white; }
+.vehicle-qr-card .mvp-qr svg { width: 100%; height: auto; display: block; }
+.vehicle-qr-card p { color: var(--vehicle-muted); font-size: clamp(19px, calc(var(--vehicle-unit) * 2.08), 40px); line-height: 1.35; margin: 0; }
+.vehicle-qr-card .vehicle-connection-code { color: var(--vehicle-navy); font-size: clamp(32px, calc(var(--vehicle-unit) * 3.125), 60px); line-height: 1; letter-spacing: .05em; font-weight: 780; }
+.vehicle-qr-card .vehicle-qr-validity { font-size: clamp(18px, calc(var(--vehicle-unit) * 1.98), 38px); }
+.vehicle-trip-layout { display: grid; grid-template-columns: minmax(0, 20fr) minmax(0, 17fr); gap: var(--vehicle-gap); min-height: 0; }
+.vehicle-trip-card { padding: calc(var(--vehicle-unit) * 2.5); display: flex; flex-direction: column; justify-content: space-between; }
+.vehicle-section-label { color: var(--vehicle-muted); font-size: clamp(21px, calc(var(--vehicle-unit) * 1.875), 36px); line-height: 1.4; }
+.vehicle-distance { display: flex; align-items: baseline; gap: calc(var(--vehicle-unit) * .65); color: var(--vehicle-navy); margin-block: calc(var(--vehicle-unit) * .7); }
+.vehicle-distance strong { font-size: clamp(64px, calc(var(--vehicle-unit) * 8), 154px); letter-spacing: -.03em; line-height: 1.1; font-weight: 760; }
+.vehicle-distance span { font-size: clamp(32px, calc(var(--vehicle-unit) * 3.125), 60px); line-height: 1.1; font-weight: 700; }
+.vehicle-distance.unavailable strong { font-size: clamp(32px, calc(var(--vehicle-unit) * 4), 76px); padding-block: calc(var(--vehicle-unit) * 1.2); }
+.vehicle-driver-name { margin-top: calc(var(--vehicle-unit) * 1.1); font-size: clamp(25px, calc(var(--vehicle-unit) * 2.1875), 42px); line-height: 1.3; }
+.vehicle-trip-origin { margin-top: calc(var(--vehicle-unit) * 1.05); color: var(--vehicle-muted); font-size: clamp(20px, calc(var(--vehicle-unit) * 1.98), 38px); line-height: 1.4; }
+.vehicle-mock-distance { margin-top: calc(var(--vehicle-unit) * .45); color: #647488; font-size: clamp(12px, calc(var(--vehicle-unit) * 1.05), 20px); line-height: 1.4; }
+.vehicle-trip-buttons { display: flex; flex-direction: column; gap: calc(var(--vehicle-unit) * 1.67); margin-top: calc(var(--vehicle-unit) * 2); }
+.vehicle-stop-button { min-height: 56px; border: 0; background: transparent; color: #344555; font-size: clamp(22px, calc(var(--vehicle-unit) * 2.08), 40px); line-height: 1.35; font-weight: 650; text-decoration: underline; text-underline-offset: .25em; padding: calc(var(--vehicle-unit) * 1.5) 12px 0; cursor: pointer; }
+.vehicle-stop-button:disabled { opacity: .45; cursor: not-allowed; }
+.vehicle-inline-message { margin-top: 16px; font-size: clamp(16px, calc(var(--vehicle-unit) * 1.25), 24px); color: #805a03; line-height: 1.45; }
+.vehicle-unknown { display: flex; flex-direction: column; gap: 20px; justify-content: center; text-align: center; }
+.vehicle-unknown p { font-size: clamp(20px, calc(var(--vehicle-unit) * 2), 36px); color: #526276; line-height: 1.5; }
+@media (max-width: 780px) {
+  .mvp-car-screen.vehicle-screen { --vehicle-unit: 8px; --vehicle-gap: 20px; min-height: 100dvh; height: auto; gap: 24px; }
+  .vehicle-screen-header { flex-wrap: wrap; gap: 16px; }.vehicle-brand small { display: none; }
+  .vehicle-connection-layout, .vehicle-trip-layout { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .vehicle-connection-copy, .vehicle-trip-actions { gap: 24px; }.vehicle-readiness { gap: 14px; }
+  .vehicle-connection-actions { gap: 12px; }.vehicle-button { font-size: 22px; }
+  .vehicle-qr-card { padding: 24px; gap: 18px; }.vehicle-qr-card .mvp-qr { width: min(100%, 280px); }
+  .vehicle-trip-card { min-height: 440px; padding: 24px; }.vehicle-trip-origin { font-size: 20px; }
+  .vehicle-trip-buttons { gap: 14px; margin-top: 0; }.vehicle-stop-button { padding-top: 12px; }
+}

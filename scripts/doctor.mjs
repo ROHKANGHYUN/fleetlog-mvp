@@ -1,0 +1,14 @@
+import {existsSync} from 'node:fs';
+import {spawnSync} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
+import {resolve} from 'node:path';
+const root=fileURLToPath(new URL('../',import.meta.url));
+const good=Number(process.versions.node.split('.')[0])===24;
+console.log(`${good?'OK':'필요'} Node.js ${process.versions.node} (24.x 기준)`);
+const deps=existsSync(resolve(root,'node_modules/vite/package.json'));
+console.log(`${deps?'OK':'필요'} 웹 의존성${deps?' 설치됨':' — npm ci 실행'}`);
+const java=spawnSync('java',['-version'],{encoding:'utf8'});
+console.log(`선택 · Android: ${java.error?'JDK 미확인':(java.stderr||java.stdout).split('\n')[0]}`);
+console.log(`선택 · Android SDK: ${process.env.ANDROID_HOME&&existsSync(process.env.ANDROID_HOME)?'ANDROID_HOME 경로 존재':'Android Studio에서 설치 및 설정 필요'}`);
+console.log('웹 실행에 Android 도구는 필요하지 않습니다. Android 상세 점검은 apps/car-android/README.md를 확인하세요.');
+if(!good||!deps)process.exitCode=1;

@@ -1,0 +1,5 @@
+#!/bin/sh
+# Local launcher, not the official Gradle wrapper. No jar or auto-download is bundled.
+set -eu
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+exec python3 "$SCRIPT_DIR/scripts/run-gradle.py" "$@"

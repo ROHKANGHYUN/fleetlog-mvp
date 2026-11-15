@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Official Vehicle 2.3.2 Odometer source declares this normal permission. -->
+    <uses-permission android:name="pleos.car.permission.CAR_DRIVE" />
+    <application>
+        <!-- Explicit diagnostic entry only; never opens or changes the trip store. -->
+        <activity android:name="io.fleetlog.demo.platform.PleosProbeActivity"
+            android:exported="true" />
+    </application>
+</manifest>

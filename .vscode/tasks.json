@@ -1,0 +1,8 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {"label":"Fleetlog: 개발 서버","type":"shell","command":"npm run dev","isBackground":true,"problemMatcher":[],"presentation":{"reveal":"always","panel":"dedicated"}},
+    {"label":"Fleetlog: 전체 확인","type":"shell","command":"npm run check","group":{"kind":"test","isDefault":true},"problemMatcher":[]},
+    {"label":"Fleetlog: 환경 점검","type":"shell","command":"npm run doctor","problemMatcher":[]}
+  ]
+}
